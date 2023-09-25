@@ -6,17 +6,14 @@
                     <h1 class="text-4xl md:text-7xl">O seu lar ideal está a um clique de distância</h1>
                 </div>
 
-                <router-link to="/properties">Ver Propriedades</router-link>
-                <c-button variant-color="green">Button</c-button>
+                <router-link to="/properties" class="bg-slate-400 py-1 px-2 transition-all duration-500 hover:bg-slate-300 rounded-md w-max">Ver Propriedades</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-     
-    };
+    export default {};
 </script>
 <style scoped lang="scss">
     .inicial {
