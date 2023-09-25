@@ -1,7 +1,18 @@
 <template>
-  <router-view/>
+  <c-theme-provider>
+    <c-reset />
+    <router-view />
+  </c-theme-provider>
 </template>
 
-<style lang="scss" scoped>
+<script>
+import { CThemeProvider, CReset } from "@chakra-ui/vue";
 
-</style>
+export default {
+  name: "App",
+  components: {
+    CThemeProvider,
+    CReset
+  }
+};
+</script>

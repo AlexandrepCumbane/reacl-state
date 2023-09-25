@@ -14,11 +14,8 @@
 </template>
 
 <script>
-    import { CButton } from "chakra-ui/vue";
     export default {
-        components: {
-            CButton,
-        },
+     
     };
 </script>
 <style scoped lang="scss">
