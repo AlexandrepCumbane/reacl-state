@@ -1,5 +1,5 @@
 <template lang="">
-    <header class="py-2 px-4 flex flex-row justify-between items-center">
+    <header class="py-2 px-4 flex flex-row justify-between items-center sticky top-0">
         <nav>
             <router-link class="flex flex-row items-center" to="/"><span class="material-symbols-outlined"> home </span></router-link>
         </nav>
@@ -19,6 +19,4 @@
 <script>
     export default {};
 </script>
-<style lang="">
-   
-</style>
+<style lang=""></style>

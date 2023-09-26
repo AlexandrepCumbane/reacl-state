@@ -9,8 +9,8 @@ class PropertyController {
         try {
             const properties = await Property.find();
             if (properties) {
-                console.log(properties);
-                return res.status(200).json(properties);
+                console.log(typeof properties);
+                return res.status(200).json( properties);
             }
             throw new Error("error");
         } catch (error) {
