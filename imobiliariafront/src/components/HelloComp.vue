@@ -10,14 +10,24 @@
                     <h1 class="text-4xl md:text-7xl">O seu lar ideal está a um clique de distância</h1>
                 </div>
 
-                <router-link to="/properties" class="bg-slate-400 py-1 px-2 transition-all duration-500 hover:bg-slate-300 rounded-md w-max">Ver Propriedades</router-link>
+                <router-link to="/properties"> <v-btn size="large" :loading="loading" @click="load" elevation="8" class="dark:bg-slate-500 dark:text-white"> Ver Propriedades </v-btn></router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {};
+
+    export default {
+        data: () => ({ loading: false }),
+
+        methods: {
+            load() {
+                this.loading = true;
+                setTimeout(() => (this.loading = false), 3000);
+            },
+        },
+    };
 </script>
 <style scoped lang="scss">
     .inicial {

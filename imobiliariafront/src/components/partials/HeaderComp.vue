@@ -32,9 +32,10 @@
             loadPage() {
                 if (this.isDarkMode) {
                     this.mode = true;
-                    this.html.toggle("dark");
+                    this.html.add("dark");
                 } else {
                     this.mode = false;
+                    this.html.remove("dark");
                 }
             },
         },

@@ -3,6 +3,7 @@
         <HeaderComp />
         <Search />
         <section class="p-4 flex-1 flex gap-5 overflow-auto border border-black flex-wrap justify-center">
+            
             <template v-if="properties.length > 0">
                 <PropertyComp
                     v-for="property in properties"
@@ -18,6 +19,7 @@
                     :url="property._id" />
             </template>
         </section>
+
 
         <FooterComp />
     </div>
