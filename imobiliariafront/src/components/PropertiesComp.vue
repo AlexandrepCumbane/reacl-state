@@ -4,7 +4,18 @@
         <Search />
         <section class="p-4 flex-1 flex gap-5 overflow-auto border border-black flex-wrap justify-center">
             <template v-if="properties.length > 0">
-                <PropertyComp />
+                <PropertyComp
+                    v-for="property in properties"
+                    :key="property.id"
+                    :title="property.title"
+                    :price="property.price"
+                    :localization="property.localization"
+                    :category="property.category"
+                    :rooms="property.rooms"
+                    :baths="property.baths"
+                    :area="property.area"
+                    :purpose="property.purpose"
+                    :url="property._id" />
             </template>
         </section>
 
@@ -35,7 +46,8 @@
             try {
                 const response = await axios.get("http://localhost:9090/propriedades");
                 this.properties = response.data;
-                console.info("all proprietes" + " " + response.status, response.statusText)
+                console.info("all proprietes" + " " + response.status, response.statusText);
+                // console.log(this.properties)
             } catch (error) {
                 console.error(error);
             }
