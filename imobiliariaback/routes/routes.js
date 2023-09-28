@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const PropertyController = require("../controllers/PropertyController");
-// const UsersController = require("../controllers/UsersController");
+const UsersController = require("../controllers/UsersController");
 
 // const validateProperty = require("../validation/property");
 
@@ -15,6 +15,11 @@ router.post("/novaPropriedade", PropertyController.newProperty);
 router.put("/propriedade/:id", PropertyController.updateProperty);
 // Delete property
 router.delete("/propriedade/:id", PropertyController.deleteProperty);
+
+// Login
+router.post("/login", UsersController.login);
+// Login
+router.post("/sigin", UsersController.sigin);
 
 
 

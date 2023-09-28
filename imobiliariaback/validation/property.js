@@ -49,4 +49,4 @@ function validateProperty() {
     ];
 }
 
-module.exports = validateProperty;
+// module.exports = validateProperty;

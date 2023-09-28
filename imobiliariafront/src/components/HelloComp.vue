@@ -1,7 +1,8 @@
 <template>
     <div class="home h-screen flex flex-col inicial">
         <header class="border p-5 flex-none">
-            <router-link to="/login" class="flex justify-end items-center text-center">Entrar <span class="material-symbols-outlined"> login </span></router-link>
+            <router-link to="/login" class="flex justify-end items-center text-center">Entrar <v-icon icon="mdi-login"></v-icon></router-link>
+
         </header>
 
         <div class="flex flex-1 justify-end">
@@ -10,14 +11,13 @@
                     <h1 class="text-4xl md:text-7xl">O seu lar ideal está a um clique de distância</h1>
                 </div>
 
-                <router-link to="/properties"> <v-btn size="large" :loading="loading" @click="load" elevation="8" class="dark:bg-slate-500 dark:text-white"> Ver Propriedades </v-btn></router-link>
+                <router-link to="/properties"> <v-btn size="large" :loading="loading" @click="load" elevation="8"> Ver Propriedades </v-btn></router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
     export default {
         data: () => ({ loading: false }),
 
