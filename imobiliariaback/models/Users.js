@@ -2,20 +2,15 @@ const mongoose = require("mongoose");
 
 const UsersSchema = new mongoose.Schema(
     {
-        username: {
+        email: {
             type: String,
             required: true,
-            min: [6, "NomeDoUsuário deve ter no minimo 6 letras"],
+            // unique: true,
         },
         password: {
             type: String,
             required: true,
             // min: [6, "Senha deve ter no minimo 6 letras"],
-        },
-        email: {
-            type: String,
-            required: true,
-            // unique: true,
         },
     },
     { timestamps: true }

@@ -1,9 +1,8 @@
 <template>
-    <div class="w-full h-full flex flex-col border border-black">
+    <div class="w-full h-full flex flex-col">
         <HeaderComp />
         <Search />
-        <section class="p-4 flex-1 flex gap-5 overflow-auto border border-black flex-wrap justify-center">
-            
+        <section class="p-4 flex-1 flex gap-5 overflow-auto flex-wrap justify-center">
             <template v-if="properties.length > 0">
                 <PropertyComp
                     v-for="property in properties"
@@ -16,10 +15,10 @@
                     :baths="property.baths"
                     :area="property.area"
                     :purpose="property.purpose"
-                    :url="property._id" />
+                    :url="property._id"
+                    :frontImage="property.front" />
             </template>
         </section>
-
 
         <FooterComp />
     </div>

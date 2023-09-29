@@ -30,10 +30,16 @@
                 this.loading = true;
                 axios({
                     method: "post",
-                    url: "3",
+                    url: "http://localhost:9090/login",
                     data: {
-                        id: ,
+                        email: this.email,
+                        password: this.password,
                     },
+                }).then((res) => {
+                    console.log(res);
+                    // if (res.statusCode == 200) {
+                        
+                    // }
                 });
             },
 

@@ -5,19 +5,31 @@ const User = mongoose.model("user");
 
 class UserController {
     async login(req, res) {
-        email = req.body.email;
-        password = req.body.password;
+        const email = req.body.email;
+        const password = req.body.password;
+
+        try {
+            const isEmailValid = await User.findOne({ email: email }).select("email password");
+
+            if (!isEmailValid) {
+                return res.status(404).json({ message: "Invalid email" });
+            }
+            const isPasswordValid = password === isEmailValid.password;
+
+            return res.status(200).json(isPasswordValid);
+        } catch (error) {
+            return res.status(500).json(error);
+        }
     }
 
     async sigin(req, res) {
-
         try {
             const newUser = await User.create(req.body);
-            console.log(newUser)
+            console.log(newUser);
             return res.status(200).json(newUser);
         } catch (error) {
             console.error(error);
-            return res.status(400).json(error);
+            return res.status(500).json(error);
         }
     }
 }
