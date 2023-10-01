@@ -7,10 +7,6 @@ const PropertySchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        title_en: {
-            type: String,
-            required: true,
-        },
         state: {
             type: Boolean,
             required: true,
@@ -37,15 +33,7 @@ const PropertySchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        description_en: {
-            type: String,
-            required: true,
-        },
         slug: {
-            type: String,
-            required: true,
-        },
-        slug_en: {
             type: String,
             required: true,
         },
@@ -84,7 +72,7 @@ const PropertySchema = new mongoose.Schema(
         furnishingStatus: {
             type: String,
             required: false,
-            enum: ["com mobília", "algumas mobílias", "não inclui mobília", "mobília é negociável", null],
+            enum: ['Mobilada', 'Alguma Mobília', 'Sem Mobília', 'Mobília Negociável'],
         },
         localization: {
             type: String,

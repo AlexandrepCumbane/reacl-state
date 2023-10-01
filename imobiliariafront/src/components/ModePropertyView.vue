@@ -1,109 +1,240 @@
-<template lang="">
-    <form>
-        <v-autocomplete label="Propósito" :items="['Venda', 'Alugável', 'Venda e Aluguer']"></v-autocomplete>
+<template >
+    <div class="h-full w-full flex flex-col overflow-auto sm:overflow-hidden sm:flex-row gap-3 p-3">
+        <div class="h-max mx-auto w-full max-w-[450px] flex-col gap-1">
+            <PropertyComp
+                :photo="property.photos"
+                :title="property.title"
+                :price="property.price"
+                :localization="property.localization"
+                :category="property.category"
+                :rooms="property.rooms"
+                :baths="property.baths"
+                :area="property.area"
+                :purpose="property.purpose"
+                :frontImage="property.front"
+                :productLabel="property.purpose" class="flex-1"
+                />
+                <div>
+                    <pre>{{ property.description }}</pre>
+                </div>
+        </div>
 
-        <v-autocomplete label="Categoria" :items="['Residencial', 'Comercial', 'Industrial', 'Terreno', 'Lazer']"> </v-autocomplete>
+        <div class="flex-1 sm:overflow-auto">
+            <form>
+                
+                <v-text-field 
+                    label="Título"
+                    v-model="property.title"
+                    type="text">
+                </v-text-field>
 
-        <v-autocomplete label="Comodidades" multiple :items="['Piscina', 'Academia', 'Estacionamento', 'Segurança', 'Área de lazer', 'Terraço', 'Ar-Condicionado', 'Mobília', 'Cozinha equipada']">
-        </v-autocomplete>
+                <v-text-field
+                        label="Localização"
+                        v-model="property.localization">
+                </v-text-field>
 
-        <v-text-field label="Área" solo type="number" ></v-text-field>
+                <div class="flex flex-wrap">
+                    
+                    <v-select
+                    class="inline-blockd"
+                    item-title="Ativo"
+                        label="Estado"
+                        v-model="property.state"
+                        :items="['Ativo', 'Desativo']">
+                    </v-select>
 
-        <v-autocomplete label="Mobília" :items="['Com mobília', 'Alguma mobília', 'Não inclui mobília', 'Mobília negociável']"> </v-autocomplete>
+                    <v-select
+                    class="inline-blockd"
+                        label="Propósito"
+                        v-model="property.purpose"
+                        :items="['Venda', 'Alugável', 'Venda e Aluguer']">
+                    </v-select>
 
-        <v-file-input chips accept="image/*" counter multiple clearable label="Selecione as imagens" prepend-icon="mdi-camera"></v-file-input>
-    </form>
+                   
+
+                    <v-select
+                    class="inline-blockd"
+                        label="Etiqueta"
+                        v-model="property.productLabel"
+                        :items="['Novo', 'Destaque', 'Promoçao']">
+                    </v-select>
+                    <v-select
+                        class="inline-blockd"
+                        label="Forma de pagamento"
+                        v-model="property.rentFrequency"
+                        :items="['Semanal', 'Mensal', 'Trimestral', ' Anual']">
+                    </v-select>
+                    <v-select
+                        class="inline-blockd"
+                        label="Categoria"
+                        v-model="property.category"
+                        :items="['Residencial', 'Comercial', 'Industrial', 'Terreno', 'Lazer']">
+                    </v-select>
+                </div>
+
+                <v-textarea 
+                    label="Descrição" 
+                    v-model="property.description">
+                </v-textarea>
+
+                <div class="flex flex-wrap">
+                    <v-text-field
+                    class="number"
+                        label="Preço"
+                        v-model="property.price"
+                        solo
+                        type="number">
+                    </v-text-field>
+                    <v-text-field
+                        class="number"
+                        label="Quartos"
+                        type="number"
+                        v-model="property.rooms"
+                    ></v-text-field>
+                    <v-text-field
+                        class="number"
+                        label="Banheiros"
+                        type="number"
+                        v-model="property.baths"
+                    ></v-text-field>
+                    <v-text-field
+                        class="number"
+                        label="Área"
+                        v-model="property.area"
+                        solo
+                        type="number">
+                    </v-text-field>
+                </div>
+
+                <v-file-input 
+             
+                    chips 
+                    accept="image/*" 
+                    v-model="property.photos" 
+                    counter 
+                    multiple 
+                    clearable 
+                    label="Selecione as imagens" 
+                    prepend-icon="mdi-camera">
+                </v-file-input>
+
+                <div class="flex flex-wrap">
+                    <v-select
+                        class="inline-blockd"
+                        label="Comodidades"
+                        v-model="property.amenities"
+                        multiple
+                        :items="['Piscina', 'Academia', 'Estacionamento', 'Segurança', 'Área de lazer', 'Terraço', 'Ar-Condicionado', 'Mobília', 'Cozinha equipada']">
+                    </v-select>
+
+                    <v-select
+                        class="inline-blockd"
+                        label="Mobília"
+                        v-model="property.furnishingStatus"
+                        :items="['Mobilada', 'Alguma Mobília', 'Sem Mobília', 'Mobília Negociável']">
+                    </v-select>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </template>
 <script>
-    export default {};
-</script>
-<style lang=""></style>
-<!-- {
-        title: {
-            type: String,
-            required: true,
+    import PropertyComp from "./partials/PropertyComp.vue";
+    export default {
+        components: {
+            PropertyComp,
         },
-        title_en: {
-            type: String,
-            required: true,
-        },
-        state: {
-            type: Boolean,
-            required: true,
-        },
-        purpose: {
-            type: String,
-            required: true,
-            enum: ["Venda", "Alugavel", "Venda e Alugavel"],
-        },
-        price: {
-            type: Number,
-            required: true,
-        },
-        productLabel: {
-            type: String,
-            enum: ["Novo", "Destaque", "Promoçao"],
-        },
-        rentFrequency: {
-            type: String,
-            required: false,
-            enum: ["mensal", "semanal", "trimestral", "anual", null],
-        },
-        description: {
-            type: String,
-            required: true,
-        },
-        description_en: {
-            type: String,
-            required: true,
-        },
-        slug: {
-            type: String,
-            required: true,
-        },
-        slug_en: {
-            type: String,
-            required: true,
-        },
-        category: {
-            type: String,
-            required: true,
-            enum: ["Residencial", "Comercial", "Industrial", "Terreno", "Lazer" /*(resorts, hoteis)*/],
-        },
-        rooms: {
-            type: Number,
-        },
-        baths: {
-            type: Number,
-        },
-        area: {
-            type: Number,
-        },
-        photoCount: {
-            type: Number,
-            required: true,
-        },
-        photos: [
-            {
-                _id: {
-                    type: String,
-                    default: uuidv4, // Gera um ID único automaticamente
+        data() {
+            return {
+                property: {
+                    title: "",
+                    title_en: "",
+                    state: "Ativo",
+                    purpose: "",
+                    price: 0,
+                    productLabel: "",
+                    rentFrequency: "",
+                    description: "",
+                    description_en: "",
+                    slug: "",
+                    slug_en: "",
+                    category: "",
+                    rooms: 0,
+                    baths: 0,
+                    area: 0,
+                    photoCount: 0,
+                    photos: [],
+                    amenities: [],
+                    furnishingStatus: "",
+                    localization: "",
                 },
-                url: String, // URL da imagem
-            },
-        ],
-        amenities: {
-            type: [String], // array de strings
-            required: false,
-            enum: ["Piscina", "Academia", "Estacionamento", "Segurança", "Área de lazer para crianças", "Terraço", "Ar-Condicionado", "CozinhaEquipada", null],
+            };
         },
-        furnishingStatus: {
-            type: String,
-            required: false,
-            enum: ["com mobília", "algumas mobílias", "não inclui mobília", "mobília é negociável", null],
-        },
-        localization: {
-            type: String,
-            required: true,
+       
+    };
+</script>
+<style scoped>
+.inline-blockd{
+    display: inline-block;
+    min-width: 100px;
+    flex: 1 1 0%;
+}
+.number{
+    display: inline-block;
+    min-width: 50px;
+    flex: 1 1 0%;
+}
+
+</style>
+
+<!-- ////////////////////////////////////////////////////// -->
+
+<!-- <template>
+  <div>
+    <div class="imagePreviewWrapper" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage"> </div>
+ 
+    <input ref="fileInput" type="file" @input="pickFile">
+  </div>
+</template>
+ 
+<script>
+export default {
+  data() {
+      return {
+        previewImage: null
+      };
+    },
+  methods: {
+      selectImage () {
+          this.$refs.fileInput.click()
+      },
+      pickFile () {
+        let input = this.$refs.fileInput
+        let file = input.files
+        if (file && file[0]) {
+          let reader = new FileReader
+          reader.onload = e => {
+            this.previewImage = e.target.result
+          }
+          reader.readAsDataURL(file[0])
+          this.$emit('input', file[0])
         }
-    }, -->
+      }
+  }
+}
+</script>
+ 
+<style>
+.imagePreviewWrapper {
+    width: 250px;
+    height: 250px;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto 30px;
+    background-size: cover;
+    background-position: center center;
+}
+</style> -->
+
+

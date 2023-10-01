@@ -1,19 +1,18 @@
 <template>
     <section class="p-4 flex-1 flex gap-5 overflow-auto flex-wrap justify-center">
         <template v-if="properties.length > 0">
-            <PropertyComp
-                v-for="property in properties"
-                :key="property.id"
-                :title="property.title"
-                :price="property.price"
-                :localization="property.localization"
-                :category="property.category"
-                :rooms="property.rooms"
-                :baths="property.baths"
-                :area="property.area"
-                :purpose="property.purpose"
-                :url="property._id"
-                :frontImage="property.front" />
+            <router-link :to="{ name: 'detalhes', params: { id: property._id } }" v-for="property in properties" :key="property.id" class="w-full sm:max-w-[450px]">
+                <PropertyComp
+                    :title="property.title"
+                    :price="property.price"
+                    :localization="property.localization"
+                    :category="property.category"
+                    :rooms="property.rooms"
+                    :baths="property.baths"
+                    :area="property.area"
+                    :purpose="property.purpose"
+                    :frontImage="property.front" />
+            </router-link>
         </template>
     </section>
 </template>
