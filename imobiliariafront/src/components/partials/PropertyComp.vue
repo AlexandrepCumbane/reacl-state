@@ -17,21 +17,20 @@
                 <p class="category">{{ category }}</p>
             </div>
             <div class="border-t h-[35px] flex flex-row justify-evenly">
-                <div class="flex flex-none items-center rooms">
+                <div class="flex gap-2 flex-none items-center rooms">
                     <span>{{ rooms }}</span>
-                    <span class="material-symbols-outlined"> bed </span>
+                    <v-icon icon="mdi-bed-outline
+                    "></v-icon>
                 </div>
-                <div class="flex flex-none items-center baths">
+                <div class="flex  gap-2 flex-none items-center baths">
                     <span>{{ baths }}</span>
-                    <span class="material-symbols-outlined"> shower </span>
+                    <v-icon icon="mdi-toilet"></v-icon>
                 </div>
-                <div class="flex flex-none items-center area">
-                    <span class="material-symbols-outlined"> pinch </span>
+                <div class="flex gap-2 flex-none items-center area">
+                  <v-icon icon="mdi-shape-square-plus"></v-icon>
                     <span>{{ area }} m^2</span>
                 </div>
-                <div class="flex flex-none items-center mobilia">
-                    <span class="material-symbols-outlined"> chair </span>
-                </div>
+                
             </div>
             <p class="border-t p-1">{{ localization }}</p>
         </div>

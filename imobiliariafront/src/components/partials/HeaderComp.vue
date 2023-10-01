@@ -1,5 +1,5 @@
 <template lang="">
-    <header class="p-5 flex flex-row justify-between items-center sticky top-0">
+    <header class="p-5 flex-none flex flex-row justify-between items-center sticky top-0">
         <nav>
             <router-link class="flex flex-row items-center" to="/"><v-icon icon="mdi-home"></v-icon></router-link>
         </nav>

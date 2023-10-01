@@ -25,12 +25,14 @@
                 <v-text-field 
                     label="Título"
                     v-model="property.title"
-                    type="text">
+                    type="text"
+                    clearable>
                 </v-text-field>
 
                 <v-text-field
                         label="Localização"
-                        v-model="property.localization">
+                        v-model="property.localization"
+                        clearable>
                 </v-text-field>
 
                 <div class="flex flex-wrap">
@@ -40,14 +42,16 @@
                     item-title="Ativo"
                         label="Estado"
                         v-model="property.state"
-                        :items="['Ativo', 'Desativo']">
+                        :items="['Ativo', 'Desativo']"
+                        clearable>
                     </v-select>
 
                     <v-select
                     class="inline-blockd"
                         label="Propósito"
                         v-model="property.purpose"
-                        :items="['Venda', 'Alugável', 'Venda e Aluguer']">
+                        :items="['Venda', 'Alugável', 'Venda e Aluguer']"
+                        clearable>
                     </v-select>
 
                    
@@ -56,19 +60,22 @@
                     class="inline-blockd"
                         label="Etiqueta"
                         v-model="property.productLabel"
-                        :items="['Novo', 'Destaque', 'Promoçao']">
+                        :items="['Novo', 'Destaque', 'Promoçao']"
+                        clearable>
                     </v-select>
                     <v-select
                         class="inline-blockd"
                         label="Forma de pagamento"
                         v-model="property.rentFrequency"
-                        :items="['Semanal', 'Mensal', 'Trimestral', ' Anual']">
+                        :items="['Semanal', 'Mensal', 'Trimestral', ' Anual']"
+                        clearable>
                     </v-select>
                     <v-select
                         class="inline-blockd"
                         label="Categoria"
                         v-model="property.category"
-                        :items="['Residencial', 'Comercial', 'Industrial', 'Terreno', 'Lazer']">
+                        :items="['Residencial', 'Comercial', 'Industrial', 'Terreno', 'Lazer']"
+                        clearable>
                     </v-select>
                 </div>
 
@@ -83,27 +90,49 @@
                         label="Preço"
                         v-model="property.price"
                         solo
-                        type="number">
+                        type="number"
+                        clearable>
                     </v-text-field>
                     <v-text-field
                         class="number"
                         label="Quartos"
                         type="number"
                         v-model="property.rooms"
-                    ></v-text-field>
+                        clearable>
+                </v-text-field>
                     <v-text-field
                         class="number"
                         label="Banheiros"
                         type="number"
                         v-model="property.baths"
-                    ></v-text-field>
+                        clearable>
+                    </v-text-field>
                     <v-text-field
                         class="number"
                         label="Área"
                         v-model="property.area"
                         solo
-                        type="number">
+                        type="number"
+                        clearable>
                     </v-text-field>
+                </div>
+                <div class="flex flex-wrap">
+                    <v-select
+                        class="inline-blockd"
+                        label="Comodidades"
+                        v-model="property.amenities"
+                        multiple
+                        :items="['Piscina', 'Academia', 'Estacionamento', 'Segurança', 'Área de lazer', 'Terraço', 'Ar-Condicionado', 'Mobília', 'Cozinha equipada']"
+                        clearable>
+                    </v-select>
+
+                    <v-select
+                        class="inline-blockd"
+                        label="Mobília"
+                        v-model="property.furnishingStatus"
+                        :items="['Mobilada', 'Alguma Mobília', 'Sem Mobília', 'Mobília Negociável']"
+                        clearable>
+                    </v-select>
                 </div>
 
                 <v-file-input 
@@ -118,22 +147,6 @@
                     prepend-icon="mdi-camera">
                 </v-file-input>
 
-                <div class="flex flex-wrap">
-                    <v-select
-                        class="inline-blockd"
-                        label="Comodidades"
-                        v-model="property.amenities"
-                        multiple
-                        :items="['Piscina', 'Academia', 'Estacionamento', 'Segurança', 'Área de lazer', 'Terraço', 'Ar-Condicionado', 'Mobília', 'Cozinha equipada']">
-                    </v-select>
-
-                    <v-select
-                        class="inline-blockd"
-                        label="Mobília"
-                        v-model="property.furnishingStatus"
-                        :items="['Mobilada', 'Alguma Mobília', 'Sem Mobília', 'Mobília Negociável']">
-                    </v-select>
-                </div>
 
             </form>
         </div>

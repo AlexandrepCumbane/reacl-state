@@ -10,7 +10,7 @@
                     <h1 class="text-4xl md:text-7xl text-center">O seu lar ideal à um clique de distância</h1>
                 </div>
 
-                <router-link to="/properties"> <v-btn size="large" :loading="loading" @click="load" elevation="8" class="hover:bg-[rgba(253,253,253,0.31)]"> Ver Propriedades </v-btn></router-link>
+                <router-link to="/propriedades"> <v-btn size="large" :loading="loading" @click="load" elevation="8" class="hover:bg-[rgba(253,253,253,0.31)]"> Ver Propriedades </v-btn></router-link>
             </div>
         </div>
     </div>

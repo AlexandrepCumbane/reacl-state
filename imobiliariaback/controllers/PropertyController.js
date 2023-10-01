@@ -7,14 +7,17 @@ class PropertyController {
     // Show all
     async showAllProperty(req, res) {
         try {
-            const properties = await Property.find();
-            if (properties) {
-                console.log(typeof properties);
-                return res.status(200).json( properties);
-            }
-            throw new Error("error");
+            await Property.find()
+                .then((properties) => {
+                    return res.status(200).json(properties);
+                })
+                .catch((err) => {
+                    console.error(error);
+                    return res.status(404).json({ msg: "Propriedades não encontradas!" });
+                });
         } catch (error) {
             console.log(error);
+            return res.status(500).json(error);
         }
     }
 
@@ -22,14 +25,16 @@ class PropertyController {
     async showProperty(req, res) {
         const id = req.params.id;
         try {
-            const property = await Property.findById({ _id: id });
-            if (!property) return res.status(404).json({ msg: "Propriedade não encontrada!" });
-            else {
-                return res.status(200).json(property);
-            }
+            await Property.findById({ _id: id })
+                .then((property) => {
+                    return res.status(200).json(property);
+                })
+                .catch((error) => {
+                    return res.status(404).json({ msg: "Propriedade não encontrada!" });
+                });
         } catch (error) {
             console.log(error.messageFormat);
-            return res.status(500).json({ id, error, msg: "Propriedade não encontrada!" });
+            return res.status(500).json(error);
         }
     }
 
@@ -38,7 +43,7 @@ class PropertyController {
     async newProperty(req, res) {
         try {
             const newProperty = await Property.create(req.body);
-            console.log(newProperty)
+            console.log(newProperty);
             return res.status(200).json(newProperty);
         } catch (error) {
             console.error(error);

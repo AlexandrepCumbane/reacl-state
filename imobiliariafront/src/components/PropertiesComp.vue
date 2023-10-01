@@ -1,7 +1,7 @@
 <template>
-    <section class="p-4 flex-1 flex gap-5 overflow-auto flex-wrap justify-center">
+    <section class="p-4 flex-1 flex gap-5 overflow-auto flex-wrap justify-normal ">
         <template v-if="properties.length > 0">
-            <router-link :to="{ name: 'detalhes', params: { id: property._id } }" v-for="property in properties" :key="property.id" class="w-full sm:max-w-[450px]">
+            <router-link :to="{ name: 'detalhes', params: { id: property._id } }" v-for="property in properties" :key="property.id" class="mx-auto sm:mx-auto w-full max-w-[420px]">
                 <PropertyComp
                     :title="property.title"
                     :price="property.price"

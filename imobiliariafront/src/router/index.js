@@ -9,11 +9,16 @@ import ShowProperty from "@/components/ShowProperty.vue";
 const routes = [
     { path: "/", name: "home", component: HomeView },
     { path: "/login", name: "login", component: LoginView },
-    { path: "/properties", name: "properties", component: PropertiesView },
+    { path: "/propriedades", name: "propiedades", component: PropertiesView },
     {
-        path: "/property",
+        path: "/propriedade",
         component: PropertyView,
         children: [
+             {
+                path: "nova",
+                name: "nova",
+                component: ModePropertyView,
+            },
             {
                 path: ":id",
                 name: "detalhes",
@@ -23,11 +28,7 @@ const routes = [
                 path: ":id/editar",
                 component: ModePropertyView,
             },
-            {
-                path: "nova",
-                name: "nova",
-                component: ModePropertyView,
-            },
+           
         ],
     },
 ];
