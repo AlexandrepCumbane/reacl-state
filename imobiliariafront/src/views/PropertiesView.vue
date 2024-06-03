@@ -1,8 +1,10 @@
 <template >
     <HeaderComp />
-    <Search />
-    <PropertiesComp />
-    <FooterComp />
+    <div class="overflow-auto">
+        <Search />
+        <PropertiesComp />
+        <FooterComp />
+    </div>
 </template>
 
 <script>

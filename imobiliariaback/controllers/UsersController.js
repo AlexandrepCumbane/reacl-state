@@ -22,7 +22,7 @@ class UserController {
         }
     }
 
-    async sigin(req, res) {
+    async sigin(req, res) {z
         try {
             const newUser = await User.create(req.body);
             console.log(newUser);

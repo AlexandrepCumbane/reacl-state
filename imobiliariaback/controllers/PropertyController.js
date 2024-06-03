@@ -38,7 +38,7 @@ class PropertyController {
         }
     }
 
-    // Save Property
+    // New Property
 
     async newProperty(req, res) {
         try {

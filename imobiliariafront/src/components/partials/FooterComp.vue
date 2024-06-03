@@ -1,5 +1,5 @@
 <template>
-    <footer class="border-2 border-rose-500">
+    <footer class="">
         <div class="py-1 px-2 text-center">
             <p>
                 Desenvolvido por <a href="http://linkedin.com/in/juvenciofigocumbane" target="_blank"><span class="underline lin">Juvêncio</span></a>

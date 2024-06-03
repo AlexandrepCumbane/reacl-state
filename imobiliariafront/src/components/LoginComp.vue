@@ -1,5 +1,5 @@
 <template lang="">
-    <v-sheet class="bg-purple-950 flex flex-row justify-center items-center h-full border-8">
+    <v-sheet class="bg-purple-950 flex flex-row justify-center items-center h-full ">
         <v-card class="px-6 py-8 w-[340px]">
             <v-form v-model="form" @submit.prevent="onSubmit">
                 <v-text-field v-model="email" variant="solo" :readonly="loading" :rules="[required]" class="mb-2" clearable label="Email"></v-text-field>

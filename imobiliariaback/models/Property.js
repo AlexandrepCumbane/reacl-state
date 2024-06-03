@@ -8,7 +8,7 @@ const PropertySchema = new mongoose.Schema(
             required: true,
         },
         state: {
-            type: Boolean,
+            type: String, //mudar para boolean
             required: true,
         },
         purpose: {
@@ -27,16 +27,16 @@ const PropertySchema = new mongoose.Schema(
         rentFrequency: {
             type: String,
             required: false,
-            enum: ["mensal", "semanal", "trimestral", "anual", null],
+            enum: ["Mensal", "Semanal", "Trimestral", "Anual", null],
         },
         description: {
             type: String,
             required: true,
         },
-        slug: {
-            type: String,
-            required: true,
-        },
+        // slug: {
+        //     type: String,
+        //     required: true,
+        // },
         category: {
             type: String,
             required: true,
@@ -51,23 +51,13 @@ const PropertySchema = new mongoose.Schema(
         area: {
             type: Number,
         },
-        photoCount: {
-            type: Number,
-            required: true,
+        photos:{
+            type :[Object],
         },
-        photos: [
-            {
-                _id: {
-                    type: String,
-                    default: uuidv4, // Gera um ID único automaticamente
-                },
-                url: String, // URL da imagem
-            },
-        ],
         amenities: {
             type: [String], // array de strings
             required: false,
-            enum: ["Piscina", "Academia", "Estacionamento", "Segurança", "Área de lazer para crianças", "Terraço", "Ar-Condicionado", "Mobília", "CozinhaEquipada", null],
+            enum: ["Piscina", "Academia", "Estacionamento", "Segurança", "Área de lazer", "Terraço", "Ar-Condicionado", "Mobília", "Cozinha equipada", null],
         },
         furnishingStatus: {
             type: String,

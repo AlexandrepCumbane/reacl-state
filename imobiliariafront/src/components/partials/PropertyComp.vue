@@ -11,12 +11,12 @@
             </div>
             <p class="absolute bottom-2 p-1  rounded-md left-2 text-lg font-semibold bg-[#e9e6e64f]">{{ price }} <span class="font-normal text-base">mzn</span></p>
         </div>
-        <div class="border rounded-b-lg">
+        <div class=" rounded-b-lg">
             <div class="flex p-1 flex-row justify-between px-2">
                 <p class="title">{{ title }}</p>
                 <p class="category">{{ category }}</p>
             </div>
-            <div class="border-t h-[35px] flex flex-row justify-evenly">
+            <div class="-t h-[35px] flex flex-row justify-evenly">
                 <div class="flex gap-2 flex-none items-center rooms">
                     <span>{{ rooms }}</span>
                     <v-icon icon="mdi-bed-outline
@@ -32,7 +32,7 @@
                 </div>
                 
             </div>
-            <p class="border-t p-1">{{ localization }}</p>
+            <p class="p-1">{{ localization }}</p>
         </div>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="home h-screen flex flex-col inicial">
-        <header class="border p-5 flex-none flex flex-row justify-end">
+        <header class=" p-5 flex-none flex flex-row justify-end">
             <router-link to="/login" class="w-max flex justify-end items-center text-center">Entrar <v-icon icon="mdi-login"></v-icon></router-link>
         </header>
 
